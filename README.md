@@ -5,13 +5,18 @@ A comprehensive monorepo documenting my journey, featuring practical implementat
 ## 📋 Repository Structure
 
 ```
-learning-portfolio/
-├── caching&scaling/          # System design deep-dives
-├── projects/                 # Full-stack implementations
-│   ├── url_shortener/       # Production-ready URL shortener
-│   └── social_media/        # Social media backend architecture
-├── ds_algorithms/           # LeetCode solutions & patterns
-└── materials/               # Study resources & notes
+portfolio/
+├── system-design/
+├── projects/
+│   ├── url_shortener/
+│   └── social_media/
+├── DSA/
+├── data_structures/
+├── db_design/
+├── patterns/
+├── apis/
+├── operations/
+└── scripts/
 ```
 
 ## 🎯 Purpose
@@ -41,15 +46,15 @@ API design and implementation for social media features:
 
 Comprehensive notes covering production system architecture:
 
-1. **[Caching Strategies](./caching&scaling/01-caching-strategies.md)** - Cache-aside, write-through, write-behind patterns
-2. **[Scaling Architectures](./caching&scaling/02-scaling-architectures.md)** - Horizontal/vertical scaling, load balancing
-3. **[Database Scaling](./caching&scaling/03-database-scaling.md)** - Replication, sharding, partitioning
-4. **[Async Processing & Queues](./caching&scaling/04-async-processing-queues.md)** - Message queues, event-driven architecture
-5. **[CDN & Edge Caching](./caching&scaling/05-cdn-edge-caching.md)** - Content delivery optimization
-6. **[Monitoring & Observability](./caching&scaling/06-monitoring-observability.md)** - Metrics, logging, tracing
-7. **[Case Study: Social Feed](./caching&scaling/07-social-feed-case-study.md)** - Real-world application
+1. **[Caching Strategies](./system-design/01-caching-strategies.md)** - Cache-aside, write-through, write-behind patterns
+2. **[Scaling Architectures](./system-design/02-scaling-architectures.md)** - Horizontal/vertical scaling, load balancing
+3. **[Database Scaling](./system-design/03-database-scaling.md)** - Replication, sharding, partitioning
+4. **[Async Processing & Queues](./system-design/04-async-processing-queues.md)** - Message queues, event-driven architecture
+5. **[CDN & Edge Caching](./system-design/05-cdn-edge-caching.md)** - Content delivery optimization
+6. **[Monitoring & Observability](./system-design/06-monitoring-observability.md)** - Metrics, logging, tracing
+7. **[Case Study: Social Feed](./system-design/07-social-feed-case-study.md)** - Real-world application
 
-[View All System Design Notes](./caching&scaling/Index.md)
+[View All System Design Notes](./system-design/Index.md)
 
 ## 💻 Technical Stack
 
@@ -77,7 +82,7 @@ This portfolio follows a structured 30-day learning path:
 
 ## 🔗 Navigation
 
-- [System Design Index](./caching&scaling/Index.md)
+- [System Design Index](./system-design/Index.md)
 - [Project Documentation](./projects/)
 - [Algorithms & Data Structures](./ds_algorithms/)
 
@@ -87,5 +92,4 @@ This is an active learning repository, continuously updated with new concepts, p
 
 ---
 
-**Contact**: [Your Email] | [LinkedIn] | [GitHub]  
-**Last Updated**: December 2025
+**Last Updated**: April 2026
