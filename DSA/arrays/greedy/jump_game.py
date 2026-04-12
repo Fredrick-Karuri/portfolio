@@ -1,6 +1,6 @@
 class Solution:
     """
-    THE PROBLEM: Can we reach the last index by jumping?
+    THE PROBLEM: Can we reach the last index by jumping? - Problem 55
 
     PATTERN: Greedy
 
