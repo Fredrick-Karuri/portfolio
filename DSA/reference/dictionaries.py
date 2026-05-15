@@ -45,3 +45,28 @@ print("Character frequency:", freq)
 from collections import Counter
 freq = Counter(text)
 print("Using Counter: ", freq)
+
+
+
+# function that counts how many times each word appears in a sentence
+def count_words(sentence):
+    """
+    how to do it :
+    1.split the sentence into individual words
+    2.create an empty dict
+    3.loop through each word
+    4.if the word is already in the dictionary increase its count
+    5.if its new add it with a count of 1 
+    """
+    sentence_words = sentence.split()
+    seen_words={}
+
+    for word in sentence_words:
+        if word in seen_words:
+            seen_words[word] += 1 # increase the count
+        else:
+            seen_words[word] =1 # first time seeing it 
+            
+    return seen_words
+
+print("Word count:",count_words("hello world hello"))

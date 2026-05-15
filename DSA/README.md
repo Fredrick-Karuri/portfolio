@@ -1,187 +1,89 @@
-# Data Structures & Algorithms
+# DSA — Data Structures & Algorithms
 
-LeetCode solutions organized by patterns and concepts.
+A structured collection of LeetCode solutions organised by **data structure first, pattern second**.
 
-## Organization
+Think: *When you see a problem, identify the data structure → navigate to the pattern → recall the template.*
+
+---
+
+## How to Navigate
+
+**Step 1 — Identify the data structure** the problem operates on.
+**Step 2 — Find the pattern** (subfolder) that matches the technique.
+**Step 3 — Read the README** for the mental model and template.
+**Step 4 — Check the problems table** to find the closest solved example.
+
+---
+
+## Folder Map
 
 ```
-ds_algorithms/
-├── README.md
-
-├── patterns/
-│   ├── sliding_window/
-│   │   ├── longest_substring_no_repeat.md
-│   │   ├── min_window_substring.md
-│   │   └── README.md
-│   │
-│   ├── two_pointers/
-│   │   ├── two_sum_sorted.md
-│   │   └── README.md
-│   │
-│   ├── prefix_sum/
-│   │   ├── subarray_sum_equals_k.md
-│   │   ├── product_of_array_except_self.md
-│   │   └── README.md
-│   │
-│   ├── frequency_grouping/
-│   │   ├── group_anagrams.md
-│   │   └── README.md
-│   │
-│   ├── complement_lookup/
-│   │   ├── two_sum.md
-│   │   └── README.md
-│   │
-│   ├── binary_search/
-│   │   ├── binary_search_on_answer.md
-│   │   └── README.md
-│   │
-│   ├── dfs/
-│   │   ├── tree_traversals.md
-│   │   └── README.md
-│   │
-│   ├── bfs/
-│   │   ├── shortest_path_unweighted.md
-│   │   └── README.md
-│   │
-│   ├── backtracking/
-│   │   ├── subsets.md
-│   │   ├── permutations.md
-│   │   └── README.md
-│   │
-│   ├── greedy/
-│   │   ├── interval_scheduling.md
-│   │   └── README.md
-│   │
-│   └── monotonic_stack/
-│       ├── next_greater_element.md
-│       └── README.md
-
+DSA/
+├── arrays/
+│   ├── binary_search/       — sorted data, eliminate half each step
+│   ├── two_pointers/        — converging or parallel pointers on sorted/pair problems
+│   ├── greedy/              — sort + commit locally optimal choice
+│   ├── prefix_suffix/       — precompute left/right products or sums
+│   ├── frequency_counting/  — top-k, majority element, count-based problems
+│   ├── backtracking/        — subsets, combinations, permutations
+│   └── matrix/              — 2D array manipulation, rotation, traversal
+│
+├── strings/
+│   ├── sliding_window/      — variable/fixed window over characters
+│   ├── frequency_grouping/  — canonical key (sorted/freq) + hashmap bucketing
+│   └── expand_around_center/— palindrome problems, grow from every center
+│
+├── linked_lists/
+│   └── hashmap_plus_linked_list/ — O(1) lookup + O(1) ordered eviction (LRU)
+│
+├── trees/
+│   ├── binary_trees/        — construction, LCA, path problems
+│   ├── bst/                 — ordered property, in-order traversal tricks
+│   └── bfs/                 — level-order, shortest path in tree
+│
+├── graphs/
+│   ├── dfs/                 — islands, connected components, cycle detection
+│   └── backtracking/        — word search, combination sum on graph structure
+│
 ├── dynamic_programming/
-│   ├── 1d/
-│   │   ├── house_robber.md
-│   │   └── README.md
-│   │
-│   ├── 2d/
-│   │   ├── unique_paths.md
-│   │   └── README.md
-│   │
-│   └── knapsack/
-│       ├── subset_sum.md
-│       └── README.md
-
-└── reference/
-    ├── arrays.md
-    ├── strings.md
-    ├── linked_lists.md
-    ├── trees.md
-    └── graphs.md
-
+│   ├── 1d/                  — coin change, LIS, word break
+│   ├── 2d/                  — grid paths, edit distance
+│   └── knapsack/            — include/exclude decisions, subset sum
+│
+├── hash_maps/
+│   └── seen_before/         — duplicate detection, complement lookup, visited tracking
+│
+└── reference/               — Python built-in cheatsheets (dict, list, set, string)
 ```
-
-## Problem Template
-
-Each solution follows this structure:
-
-### Problem Name (LeetCode #)
-
-**Difficulty**: Easy/Medium/Hard  
-**Topics**: Array, Two Pointers, etc.  
-**Link**: [LeetCode](url)
-
-#### Problem Statement
-Brief description of the problem.
-
-#### Approach
-Explanation of the solution strategy.
-
-#### Complexity
-- **Time**: O(n)
-- **Space**: O(1)
-
-#### Code
-```python
-def solution(nums):
-    # Implementation
-    pass
-```
-
-#### Key Insights
-- Important observations
-- Edge cases handled
-- Why this approach works
-
-#### Related Problems
-- [Problem 1](#)
-- [Problem 2](#)
 
 ---
 
-## Pattern Categories
+## Pattern Decision Guide
 
-### Two Pointers (15 problems)
-- Container With Most Water
-- 3Sum
-- Trapping Rain Water
-
-### Sliding Window (12 problems)
-- Longest Substring Without Repeating Characters
-- Minimum Window Substring
-- Sliding Window Maximum
-
-### Binary Search (10 problems)
-- Search in Rotated Sorted Array
-- Find Minimum in Rotated Sorted Array
-- Median of Two Sorted Arrays
-
-### Dynamic Programming (20 problems)
-- Climbing Stairs
-- Longest Increasing Subsequence
-- Edit Distance
-
-### Graphs (18 problems)
-- Number of Islands
-- Course Schedule
-- Network Delay Time
-
-## Study Plan
-
-### Week 1: Arrays & Strings
-- Two Pointers pattern
-- Sliding Window pattern
-- Prefix Sum technique
-
-### Week 2: Linked Lists & Trees
-- Fast/Slow pointers
-- Tree traversals (DFS/BFS)
-- Binary Search Trees
-
-### Week 3: Graphs & Backtracking
-- Graph traversals
-- Shortest path algorithms
-- Backtracking templates
-
-### Week 4: Dynamic Programming
-- 1D DP fundamentals
-- 2D DP patterns
-- Classic DP problems
-
-## Progress Tracker
-
-| Category | Problems Solved | Target |
-|----------|-----------------|--------|
-| Arrays | 25 | 30 |
-| Strings | 15 | 20 |
-| Trees | 20 | 25 |
-| Graphs | 12 | 15 |
-| DP | 18 | 25 |
-| **Total** | **90** | **115** |
-
-## Resources
-
-- [LeetCode Patterns](https://seanprashad.com/leetcode-patterns/)
-- [NeetCode Roadmap](https://neetcode.io/roadmap)
-- [AlgoExpert](https://www.algoexpert.io/)
+| You see... | Start in... |
+|------------|-------------|
+| Sorted array, find target | `arrays/binary_search` |
+| Pairs, opposites, converging | `arrays/two_pointers` |
+| Subarray / substring window | `strings/sliding_window` |
+| Group / compare strings | `strings/frequency_grouping` |
+| Palindrome | `strings/expand_around_center` |
+| Prefix products / range sums | `arrays/prefix_suffix` |
+| Min/max over intervals or tasks | `arrays/greedy` |
+| Cache with ordering | `linked_lists/hashmap_plus_linked_list` |
+| Tree level by level | `trees/bfs` |
+| Connected components, islands | `graphs/dfs` |
+| "How many ways" / min cost | `dynamic_programming/` |
+| Have I seen this before? | `hash_maps/seen_before` |
+| All subsets / combinations | `arrays/backtracking` |
 
 ---
 
-**Note**: Focus on understanding patterns rather than memorizing solutions.
+## Principles
+
+**Data structure first**: The folder you land in is determined by what the problem *operates on*, not just what technique it uses.
+
+**Hashmaps are tools, not homes**: Most hashmap usage lives inside other patterns (sliding window, graphs, greedy). Files only land in `hash_maps/` when the hashmap *is* the core insight.
+
+**READMEs are your interview flashcards**: Every pattern folder has a README with a mental model, core template, variations, and pitfalls. Read it before the problem, not after.
+
+**Patterns folder is dead**: Everything that was in `patterns/` has been migrated to its correct data structure home.

@@ -73,12 +73,6 @@ Comprehensive notes covering production system architecture:
 - **DevOps**: Docker containerization, database migrations
 - **Algorithms**: Problem-solving, data structures, optimization
 
-## 📈 Learning Approach
-
-This portfolio follows a structured 30-day learning path:
-- **Days 1-10**: System design fundamentals and caching
-- **Days 11-20**: Full-stack project implementation (URL shortener)
-- **Days 21-30**: Advanced topics and social media architecture
 
 ## 🔗 Navigation
 
@@ -88,8 +82,8 @@ This portfolio follows a structured 30-day learning path:
 
 ## 📝 Notes
 
-This is an active learning repository, continuously updated with new concepts, projects, and solutions as I progress through my interview preparation.
+This is an active learning repository, continuously updated with new concepts, projects, and solutions.
 
 ---
 
-**Last Updated**: April 2026
+**Last Updated**: May 2026
