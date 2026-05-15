@@ -1,25 +1,34 @@
-
-# function that finds the two numbers in an array that add up to a target
-def two_sum(numbers_array,target):
+class Solution:
     """
-    the plan:
-    1.create empty hashmap to store numbers we have seen and their indices
-    2.loop through the array with index and value
-    3.calculate the  complement: target - current number
-    4.check if complement exists in hashmap
-        .if yes , we found the pair, return their indices
-        .if no store the current number and its index in hashmap, keep going
-    5.if we finish the loop without finding the pair, return None
-    
+    THE PROBLEM: Find two numbers that sum to target, return their indices
+
+    PATTERN: Hash map
+
+    INSIGHT: For each number, check if its complement(target-num) exists.
+    Store seen numbers with their indices
+
+    THE PLAN:
+    1. Create hash map to store value -> index
+    2. For each number, calculate complement
+    3. If complement exists in map, return both indices
+    4. Otherwise, store current number and continue
+
+    Example: nums=[2,7,11,15], target=9
+    - num=2: complement=7, not seen yet, store {2:0}
+    - num=7: complement=2, found at index 0 ✓
+    Result: [0,1]
+
+    TIME: O(n)
+    SPACE: O(n)
     """
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        seen_values = {}
 
-    seen_numbers={}
-    for current_index, num in enumerate(numbers_array):
-        complement = target - num
-        if complement in seen_numbers:
-            return [seen_numbers[complement],current_index ] #return both indices
-        seen_numbers[num] = current_index # store number with its index
-    return None
-    
+        for current_index , current_number in enumerate(nums):
+            complement = target - current_number
 
-print ("Two sum:",two_sum([2,7,11,15],9))
+            if complement in seen_values:
+                return [seen_values[complement], current_index]
+            
+            seen_values[current_number] = current_index
+        return []

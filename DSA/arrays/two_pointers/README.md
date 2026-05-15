@@ -26,7 +26,7 @@ Common keywords: "pair", "triplet", "subarray", "palindrome", "container"
 Two main approaches:
 
 > **Opposite direction**: Start at both ends, move toward each other
-> 
+>
 > **Same direction**: Both start at beginning, move at different speeds
 
 ```python
@@ -34,17 +34,15 @@ Two main approaches:
 left, right = 0, len(arr) - 1
 while left < right:
     if condition:
-        # process
         left += 1
     else:
         right -= 1
 
 # Same direction (fast/slow)
-slow = fast = 0
-while fast < len(arr):
-    # process
-    fast += 1
+slow = 0
+for fast in range(len(arr)):
     if condition:
+        nums[slow], nums[fast] = nums[fast], nums[slow]
         slow += 1
 ```
 
@@ -53,45 +51,43 @@ while fast < len(arr):
 ## Common Variations
 
 ### Opposite Direction (Squeeze)
-- Start at both ends
-- Move pointers based on comparison
+- Start at both ends, move based on comparison
 - Examples: two sum (sorted), container with most water, valid palindrome
 
 ### Same Direction (Fast/Slow)
-- Both start at beginning
 - Fast pointer explores, slow pointer tracks valid position
-- Examples: remove duplicates, move zeros, partition array
-
-### Sliding Window
-- Expand window with right pointer
-- Shrink with left pointer when condition violated
-- Examples: longest substring, minimum window
+- Slow marks where the next "good" element goes — fast finds it
+- Examples: remove duplicates, move zeroes, partition array
 
 ### Three Pointers
-- Extension for triplet problems
-- Fix one pointer, use two pointers on remaining elements
+- Fix one element in outer loop, two pointers on the remaining subarray
+- Always sort first — enables greedy pointer movement and duplicate skipping
 - Example: three sum
+
+### Sliding Window
+- Expand window with right pointer, shrink with left when constraint violated
+- Examples: longest substring, minimum window
 
 ---
 
 ## Key Patterns
 
-**Greedy movement**: Move pointer that can't improve solution (e.g., shorter height in container problem)
+**Greedy movement**: Move the pointer that can't improve the solution
 
-**Comparison-based**: Compare values at pointers to decide movement
+**Sort first**: Required for opposite-direction and triplet problems
 
-**Invariant maintenance**: Keep certain property true as pointers move
+**Duplicate skipping**: After finding a result, advance past all equal elements before continuing
 
-**Early termination**: Stop when pointers meet or cross
+**Invariant maintenance**: Keep a property true as pointers move (e.g., slow always points to last valid position)
 
 ---
 
 ## Pitfalls
 
-- **Infinite loops**: Ensure pointers always move in each iteration
+- **Infinite loops**: Ensure pointers always move each iteration
 - **Off-by-one**: Use `left < right` vs `left <= right` carefully
 - **Not sorted**: Many two-pointer problems require sorted input first
-- **Edge cases**: Empty array, single element, all duplicates
+- **Duplicate triplets**: Skip duplicates on all three pointers in three sum
 
 ---
 
@@ -99,6 +95,19 @@ while fast < len(arr):
 
 Use **two pointers** when: can make greedy decisions, linear scan suffices
 
-Use **binary search** when: need O(log n), searching specific value
+Use **binary search** when: need O(log n), searching a specific value
 
-Use **sliding window** when: need contiguous subarray/substring with constraint
+Use **sliding window** when: need contiguous subarray/substring with a constraint
+
+---
+
+## Problems
+
+| Problem | Variant | Key Twist |
+|---------|---------|-----------|
+| Two Pointers Template (two_pointers.py) | Opposite | Base pattern |
+| Container With Most Water (LC 11) | Opposite | Move shorter side |
+| Three Sum Closest (LC 16) | Opposite + fix | Track closest sum |
+| Three Sum (LC 15) | Three pointers | Sort + skip duplicates on all three |
+| Remove Duplicates (LC 26) | Fast/slow | Slow = last unique position |
+| Move Zeroes (LC 283) | Fast/slow | Swap non-zeros forward |
