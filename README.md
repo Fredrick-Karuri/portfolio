@@ -77,8 +77,7 @@ Comprehensive notes covering production system architecture:
 ## 🔗 Navigation
 
 - [System Design Index](./system-design/Index.md)
-- [Project Documentation](./projects/)
-- [Algorithms & Data Structures](./ds_algorithms/)
+- [Algorithms & Data Structures](./dsa/README.md)
 
 ## 📝 Notes
 
