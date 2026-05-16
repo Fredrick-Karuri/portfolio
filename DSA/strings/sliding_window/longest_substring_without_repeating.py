@@ -1,25 +1,27 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-
         """
-        PROBLEM:longest substing without repeating characters
+        THE PROBLEM: Find the length of the longest substring without repeating characters (Problem 3)
 
-        PATTERN:sliding window + set/hashmap
+        PATTERN: Sliding window (Dynamic / Expand-Shrink)
+
+        INSIGHT: Use a set to track unique characters in the current window.
+        Expand the window to the right. 
+        If a duplicate appears, shrink the window from the left until it is unique again.
 
         THE PLAN:
-        1.use left pointer, set to track characters in window, max_length
-        2.expand: add s[right] to window
-        3.shrink: whiles[right] is duplicate:
-            .remove s[left] from set
-            .move left forward
-        4.update max_length after each window adjustment
+        1. Initialize left pointer, max_length tracking variable, and an empty hash set
+        2. Iterate right pointer through the string to expand the window
+        3. While right character exists in set, remove left character and increment left pointer
+        4. Add right character to set and update max_length with current window size (right - left + 1)
 
-        TIME: O(n) , SPACE: O(min(n,charset_size))
+        Example: s = "abcabcbb"
+        - right=0 ('a'), set={'a'}, max=1
+        - right=3 ('a'), duplicate! Shrink left past 'a'. set={'b','c','a'}, max=3
+        Result: 3
 
-        KEY INSIGHT:when you hit a duplicate, shrink from left until the duplicate is removed,
-            then continue expanding.
-
-        
+        TIME: O(n)
+        SPACE: O(min(m, n)) where n is string length and m is alphabet/charset size
         """
         left = 0
         char_set = set()

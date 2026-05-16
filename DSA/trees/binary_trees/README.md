@@ -24,29 +24,29 @@ Note: Cannot uniquely reconstruct tree from preorder + postorder alone (without 
 Key insight for each traversal:
 
 > **Preorder**: Root is first, then left subtree, then right subtree
-> 
+>
 > **Inorder**: Left subtree, then root, then right subtree
-> 
+>
 > **Postorder**: Left subtree, then right subtree, then root is last
 
 ```python
 def buildTree(preorder, inorder):
     # Preorder tells us the root
     # Inorder tells us left/right partition
-    
+
     inorder_map = {val: idx for idx, val in enumerate(inorder)}
-    
+
     def build(left, right):
         if left > right:
             return None
-        
+
         root_val = next_from_preorder()
         root = TreeNode(root_val)
-        
+
         mid = inorder_map[root_val]
         root.left = build(left, mid - 1)
         root.right = build(mid + 1, right)
-        
+
         return root
 ```
 
@@ -101,3 +101,13 @@ def buildTree(preorder, inorder):
 **Preorder/Postorder alone**: Cannot determine left/right split
 
 **Inorder + Pre/Post**: Inorder provides partition, other provides root order
+
+---
+
+## Problems
+
+| Problem | File | Key Twist |
+|---------|------|-----------|
+| Construct Tree from Preorder & Inorder (LC 105) | `construct_tree_from_preorder_inorder.py` | Hashmap inorder index, boundary tracking |
+| Lowest Common Ancestor (LC 236) | `lowest_common_ancestor_binary_tree.py` | Return node when found, bubble up through recursion |
+| Maximum Depth of Binary Tree (LC 104) | `max_depth_binary_tree.py` | Base case 0, return `1 + max(left, right)` |
