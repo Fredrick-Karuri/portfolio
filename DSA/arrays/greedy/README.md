@@ -93,3 +93,14 @@ Use **greedy** when: local optimum guarantees global optimum, one-pass solution
 Use **DP** when: need to consider multiple choices, overlapping subproblems
 
 Greedy is O(n) or O(n log n) with sorting; DP is typically O(n²) or higher.
+
+---
+
+## Problems
+
+| Problem | File | Key Twist |
+|---------|------|-----------|
+| Jump Game (LC 55) | `jump_game.py` | Track max reachable index, not path |
+| Merge Intervals (LC 56) | `merge_intervals.py` | Sort by start, extend end greedily |
+| Task Scheduler (LC 621) | `task_scheduler.py` | Frequency-based math, fill gaps with other tasks |
+| Best Time to Buy and Sell Stock (LC 121) | `best_time_to_buy_sell_stock.py` | Track running min, compute profit at each step |

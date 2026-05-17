@@ -105,7 +105,6 @@ Use **sliding window** when: need contiguous subarray/substring with a constrain
 
 | Problem | Variant | Key Twist |
 |---------|---------|-----------|
-| Two Pointers Template (two_pointers.py) | Opposite | Base pattern |
 | Container With Most Water (LC 11) | Opposite | Move shorter side |
 | Three Sum Closest (LC 16) | Opposite + fix | Track closest sum |
 | Three Sum (LC 15) | Three pointers | Sort + skip duplicates on all three |
