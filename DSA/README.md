@@ -34,24 +34,31 @@ DSA/
 │   └── expand_around_center/— palindrome problems, grow from every center
 │
 ├── linked_lists/
-│   └── hashmap_plus_linked_list/ — O(1) lookup + O(1) ordered eviction (LRU)
+│   ├── hashmap_plus_linked_list/ — O(1) lookup + O(1) ordered eviction (LRU)
+│   └── pointer_manipulation/    — reverse, merge, reorder nodes in-place
 │
 ├── trees/
-│   ├── binary_trees/        — construction, LCA, path problems
+│   ├── binary_trees/        — construction, LCA, depth problems
 │   ├── bst/                 — ordered property, in-order traversal tricks
-│   └── bfs/                 — level-order, shortest path in tree
+│   └── bfs/                 — level-order traversal
 │
 ├── graphs/
 │   ├── dfs/                 — islands, connected components, cycle detection
+│   ├── bfs/                 — shortest path, min steps on grids
 │   └── backtracking/        — word search, combination sum on graph structure
 │
 ├── dynamic_programming/
-│   ├── 1d/                  — coin change, LIS, word break
+│   ├── 1d/                  — coin change, LIS, word break, climb stairs
 │   ├── 2d/                  — grid paths, edit distance
 │   └── knapsack/            — include/exclude decisions, subset sum
 │
 ├── hash_maps/
 │   └── seen_before/         — duplicate detection, complement lookup, visited tracking
+│
+├── stacks/
+│   └── monotonic_stack/     — next greater/smaller, spans, temperatures
+│
+├── bit_manipulation/        — binary ops, XOR tricks, bit counting
 │
 └── reference/               — Python built-in cheatsheets (dict, list, set, string)
 ```
@@ -70,11 +77,15 @@ DSA/
 | Prefix products / range sums | `arrays/prefix_suffix` |
 | Min/max over intervals or tasks | `arrays/greedy` |
 | Cache with ordering | `linked_lists/hashmap_plus_linked_list` |
+| Reverse, merge, reorder list | `linked_lists/pointer_manipulation` |
 | Tree level by level | `trees/bfs` |
 | Connected components, islands | `graphs/dfs` |
+| Shortest path, min steps on grid | `graphs/bfs` |
 | "How many ways" / min cost | `dynamic_programming/` |
 | Have I seen this before? | `hash_maps/seen_before` |
 | All subsets / combinations | `arrays/backtracking` |
+| Next greater/smaller element | `stacks/monotonic_stack` |
+| Binary string, even/odd, XOR | `bit_manipulation/` |
 
 ---
 
@@ -85,5 +96,3 @@ DSA/
 **Hashmaps are tools, not homes**: Most hashmap usage lives inside other patterns (sliding window, graphs, greedy). Files only land in `hash_maps/` when the hashmap *is* the core insight.
 
 **READMEs are your interview flashcards**: Every pattern folder has a README with a mental model, core template, variations, and pitfalls. Read it before the problem, not after.
-
-**Patterns folder is dead**: Everything that was in `patterns/` has been migrated to its correct data structure home.
