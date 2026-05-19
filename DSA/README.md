@@ -31,7 +31,8 @@ DSA/
 ├── strings/
 │   ├── sliding_window/      — variable/fixed window over characters
 │   ├── frequency_grouping/  — canonical key (sorted/freq) + hashmap bucketing
-│   └── expand_around_center/— palindrome problems, grow from every center
+│   ├── expand_around_center/— palindrome problems, grow from every center
+│   └── regex/               — multi-delimiter splits, pattern extraction, input cleaning
 │
 ├── linked_lists/
 │   ├── hashmap_plus_linked_list/ — O(1) lookup + O(1) ordered eviction (LRU)
@@ -74,6 +75,7 @@ DSA/
 | Subarray / substring window | `strings/sliding_window` |
 | Group / compare strings | `strings/frequency_grouping` |
 | Palindrome | `strings/expand_around_center` |
+| Multi-delimiter parsing, pattern matching | `strings/regex` |
 | Prefix products / range sums | `arrays/prefix_suffix` |
 | Min/max over intervals or tasks | `arrays/greedy` |
 | Cache with ordering | `linked_lists/hashmap_plus_linked_list` |
