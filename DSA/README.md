@@ -26,6 +26,7 @@ DSA/
 │   ├── prefix_suffix/       — precompute left/right products or sums
 │   ├── frequency_counting/  — top-k, majority element, count-based problems
 │   ├── backtracking/        — subsets, combinations, permutations
+│   ├── exhaustive_search/   — fixed small input, try all arrangements + orientations
 │   └── matrix/              — 2D array manipulation, rotation, traversal
 │
 ├── strings/
@@ -78,6 +79,7 @@ DSA/
 | Multi-delimiter parsing, pattern matching | `strings/regex` |
 | Prefix products / range sums | `arrays/prefix_suffix` |
 | Min/max over intervals or tasks | `arrays/greedy` |
+| Fixed small input, try all arrangements | `arrays/exhaustive_search` |
 | Cache with ordering | `linked_lists/hashmap_plus_linked_list` |
 | Reverse, merge, reorder list | `linked_lists/pointer_manipulation` |
 | Tree level by level | `trees/bfs` |
