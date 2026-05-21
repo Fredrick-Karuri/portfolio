@@ -2,8 +2,7 @@ from itertools import permutations
 
 class Solution:
     """
-    THE PROBLEM: Given 6 integers representing 6 dominoes, return "YES" if they can be arranged 
-    and rotated into a valid 3-level pyramid , "NO" otherwise. 
+    THE PROBLEM: Given 6 integers representing 6 dominoes, return "YES" if they can be arranged and rotated into a valid 3-level pyramid , "NO" otherwise. 
     A valid pyramid requires each upper domino's halves to match the inner edges of the 
     two dominoes it rests on.
 
@@ -22,7 +21,7 @@ class Solution:
         a. Apply flips to produce orientation dominoes: bottom_left, bottom_mid, 
            bottom_right, middle_left, middle_right, top.
         b. Check 6 edge constraints:
-            middle_left[0]  == bottom_left[1]   ← middle-left rests on bottom_left
+            middle_left[0]  == bottom_left[1]   ← middle-left rests on bottom_leftc
             middle_left[1]  == bottom_mid[0]    ← middle-left rests on bottom_mid
             middle_right[0] == bottom_mid[1]    ← middle-right rests on bottom_mid
             middle_right[1] == bottom_right[0]  ← middle-right rests on bottom_right
@@ -41,9 +40,14 @@ class Solution:
     TIME: O(1) - Fixed upper bound of 46,080(720*64) iterations regardless of input
     SPACE: O(1) - Only 6 oriented dominoes stored per check
 
-    DESIGN DECISION: itertools.permutation over manual recursion - handles the 720 
-    structural arrangements in one clean loop, keeping orientation (bitmask)
-    separate. Faster n practice since permutations() is implemented in C.
+    DESIGN DECISION: Permutations + bitmask over recursive backtracking
+    Arrangement (which domino goes where) and orientation( which face points left vs right)
+    are independent axes. 
+    1. A bitmask encodes all 2^6 (64) flip combos in one integer with
+    a cheap bit-shift test(mask >> i & 1) - so if 1&1 we flip
+    2. itertools.permutation handles 6!(720) in one line - it is implemented in C
+    The result is two clean, flat loops over separated concerns - simpler than backtracking,
+    which mixes both decisions into a single recursive state.
     """
     def canBuildPyramid(self, A: list[int]) -> str:
         # Stride through the array in steps of 2 - pairs become tuples
@@ -55,11 +59,11 @@ class Solution:
             # flip_mask - A 6 bit integer. Each bit controls one domino
             for flip_mask in range(64):
                 oriented = [
-                    (right,left) if 
-                    (flip_mask >> index) & 1 # isolates the bit for that domino
-                    else (left,right) 
+                    (right,left) if (flip_mask >> index) & 1 # flip
+                    else (left,right) # normal
                     for index, (left,right) in enumerate(arrangement)
                 ]
+                # Unpacking
                 bottom_left, bottom_mid, bottom_right, middle_left, middle_right, top = oriented
 
                 # Check if the pyramid contacts match
@@ -75,8 +79,17 @@ class Solution:
                 if pyramid_is_valid:
                     return "YES"
         return "NO"
-        
 
+if __name__ == "__main__":
+    solution = Solution()
+
+    # Given example
+    input = [4, 3, 3, 4, 1, 2, 2, 3, 6, 5, 4, 5]
+    result = solution.canBuildPyramid(input)
+    assert result == "YES", f"Expected YES, got {result}"
+    print(f"Example: {input} -> {result}")
+
+    print("\n All tests passed!")
 
 # if __name__ == "__main__":
 #     solution = Solution()
