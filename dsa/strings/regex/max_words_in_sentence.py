@@ -7,8 +7,7 @@ class Solution:
     PATTERN: Regular Expressions
 
     INSIGHT: Sentences can be extracted by splitting the string on any punctuation mark.('.', '?','!')
-    Once separated a sentence can contain extra white space or empty elements so we must count only 
-    the tokens that contain atleast one valid alphabetical letter.
+    Once separated a sentence can contain extra white space or empty elements so we must count only the tokens that contain atleast one valid alphabetical letter.
 
     THE PLAN:
     1. Initialize max_word_count to 0
@@ -28,7 +27,7 @@ class Solution:
     TIME: O(n) - Where n is the number of characters in string S (We can scan and split a sentence a constant number of times)
     SPACE: O(n) - To store the temporary lists of sentences and word tokens generated during splitting
 
-    DESIGN DECISION: Use re as it handles all three delimeters in one expression without chaining .replace() or writing a loop over delimeter characters. If requirements change - say, add ; s a delimeter, I change one character inside [] not multiple places in custom logic. 
+    DESIGN DECISION: Use re as it handles all three delimeters in one expression without chaining .replace() or writing a loop over delimeter characters. If requirements change - say, add ; as a delimeter, I change one character inside [] not multiple places in custom logic. 
     """
     def maxWordsInSentence(self,S:str):
         max_word_count = 0
@@ -50,4 +49,32 @@ class Solution:
             max_word_count = max(max_word_count,current_valid_words)
         
         return max_word_count
+
+
+# Test Cases
+if __name__ == "__main__":
+    solution = Solution()
+
+    # Given Example
+    example1 = "We test coders. Give us a try? "
+    result = solution.maxWordsInSentence(example1)
+    assert result == 4
+    print(f"Example:{example1} -> Output:{result} ")
+
+    # Verify the Regex behavior
+    example2 = "We are cheap! At only $45."
+    result = solution.maxWordsInSentence(example2)
+    assert result == 3
+    print(f"Example:{example2} -> Output:{result} ")
+
+    # Empty String
+    example3 = ""
+    result = solution.maxWordsInSentence(example3)
+    assert result == 0
+    print(f"Example:{example3} -> Output:{result} ")
+    
+
+
+
+    print("All tests Cases passed ")
 
